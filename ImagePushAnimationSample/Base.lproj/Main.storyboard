@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1509" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ImagePushAnimationSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="IG8-2k-EJB">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ImageCarouselCell" rowHeight="100" id="Wgw-si-JY1" customClass="ImageCarouselCell" customModule="ImagePushAnimationSample" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="28" width="320" height="100"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Wgw-si-JY1" id="Sfg-tU-pX2">
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="evW-33-1Va">
+                                                    <rect key="frame" x="0.0" y="0.0" width="320" height="99"/>
+                                                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="zUn-W3-6r1">
+                                                        <size key="itemSize" width="100" height="100"/>
+                                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                    </collectionViewFlowLayout>
+                                                    <cells>
+                                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ImageCell" id="GOe-6K-hj6" customClass="ImageCell" customModule="ImagePushAnimationSample" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="-1" width="100" height="100"/>
+                                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                                                                <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                <autoresizingMask key="autoresizingMask"/>
+                                                                <subviews>
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4K-rx-sdM">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                                    </imageView>
+                                                                </subviews>
+                                                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                                            </view>
+                                                            <constraints>
+                                                                <constraint firstItem="Q4K-rx-sdM" firstAttribute="top" secondItem="GOe-6K-hj6" secondAttribute="top" id="Swb-MO-ZmC"/>
+                                                                <constraint firstAttribute="trailing" secondItem="Q4K-rx-sdM" secondAttribute="trailing" id="V6J-jf-oIF"/>
+                                                                <constraint firstAttribute="bottom" secondItem="Q4K-rx-sdM" secondAttribute="bottom" id="Was-Df-yiA"/>
+                                                                <constraint firstItem="Q4K-rx-sdM" firstAttribute="leading" secondItem="GOe-6K-hj6" secondAttribute="leading" id="mnX-cs-NNI"/>
+                                                            </constraints>
+                                                            <connections>
+                                                                <outlet property="mainImageView" destination="Q4K-rx-sdM" id="4c3-XA-tvF"/>
+                                                            </connections>
+                                                        </collectionViewCell>
+                                                    </cells>
+                                                    <connections>
+                                                        <outlet property="dataSource" destination="Wgw-si-JY1" id="gee-A0-kV9"/>
+                                                        <outlet property="delegate" destination="Wgw-si-JY1" id="ATi-oT-KTi"/>
+                                                    </connections>
+                                                </collectionView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstItem="evW-33-1Va" firstAttribute="top" secondItem="Sfg-tU-pX2" secondAttribute="top" id="ag1-RK-bfZ"/>
+                                                <constraint firstAttribute="bottom" secondItem="evW-33-1Va" secondAttribute="bottom" id="nOc-sT-uly"/>
+                                                <constraint firstItem="evW-33-1Va" firstAttribute="leading" secondItem="Sfg-tU-pX2" secondAttribute="leading" id="nq3-zm-NU2"/>
+                                                <constraint firstAttribute="trailing" secondItem="evW-33-1Va" secondAttribute="trailing" id="zZv-sd-xC0"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
+                                        <connections>
+                                            <outlet property="collectionView" destination="evW-33-1Va" id="4BD-R8-6Li"/>
+                                        </connections>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="KzO-NC-Eaw"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="nK0-0D-vYx"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="IG8-2k-EJB" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="52g-8L-VGS"/>
+                            <constraint firstItem="IG8-2k-EJB" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Hxj-Tn-hQB"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="IG8-2k-EJB" secondAttribute="bottom" id="J1F-eX-4aY"/>
+                            <constraint firstAttribute="trailing" secondItem="IG8-2k-EJB" secondAttribute="trailing" id="NQv-oV-sbM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="IG8-2k-EJB" id="Tvx-29-1oI"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="162" y="397"/>
+        </scene>
+    </scenes>
+</document>
