@@ -12,11 +12,14 @@ class ImageViewController: UIViewController {
     
     @IBOutlet weak var mainImageView: UIImageView!
     
-    var imageUrlStr = ""
+    var mainImage = UIImage()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        mainImageView.sd_setImageWithURL(NSURL(string: imageUrlStr))
+        mainImageView.image = mainImage
     }
     
+    override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
+        self.dismissViewControllerAnimated(true, completion: nil)
+    }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3FA691CC1C4CA67600386FBC /* AnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FA691CB1C4CA67600386FBC /* AnimationController.swift */; };
 		3FCB683F1C4C8B1600D38F31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB683E1C4C8B1600D38F31 /* AppDelegate.swift */; };
 		3FCB68411C4C8B1600D38F31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3FCB68401C4C8B1600D38F31 /* ViewController.swift */; };
 		3FCB68441C4C8B1600D38F31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3FCB68421C4C8B1600D38F31 /* Main.storyboard */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		2CA3A7369BBBD8CA369F6ED6 /* Pods.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3FA691CB1C4CA67600386FBC /* AnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AnimationController.swift; sourceTree = "<group>"; };
 		3FCB683B1C4C8B1600D38F31 /* ImagePushAnimationSample.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ImagePushAnimationSample.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		3FCB683E1C4C8B1600D38F31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		3FCB68401C4C8B1600D38F31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				3FCB686E1C4C8D9F00D38F31 /* ImageCarouselCell.swift */,
 				3FCB68701C4C8E6300D38F31 /* ImageCell.swift */,
 				3FCED5CE1C4C9EA20078FDCC /* ImageViewController.swift */,
+				3FA691CB1C4CA67600386FBC /* AnimationController.swift */,
 				3FCB68421C4C8B1600D38F31 /* Main.storyboard */,
 				3FCB68451C4C8B1600D38F31 /* Assets.xcassets */,
 				3FCB68471C4C8B1600D38F31 /* LaunchScreen.storyboard */,
@@ -342,6 +345,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3FA691CC1C4CA67600386FBC /* AnimationController.swift in Sources */,
 				3FCB68411C4C8B1600D38F31 /* ViewController.swift in Sources */,
 				3FCB68711C4C8E6300D38F31 /* ImageCell.swift in Sources */,
 				3FCED5CF1C4C9EA20078FDCC /* ImageViewController.swift in Sources */,

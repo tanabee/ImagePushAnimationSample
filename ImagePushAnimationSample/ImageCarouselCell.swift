@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 protocol ImageCarouselCellDelegate {
-    func imageSelected(imageUrlStr: String)
+    func imageSelected(image: UIImage, imageRect: CGRect)
 }
 
 class ImageCarouselCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -51,7 +51,9 @@ class ImageCarouselCell: UITableViewCell, UICollectionViewDataSource, UICollecti
     }
     
     func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        delegateProperty?.imageSelected(imageUrls[indexPath.row])
+        let cell = collectionView.cellForItemAtIndexPath(indexPath) as! ImageCell
+        let rect = CGRectMake(cell.frame.origin.x - collectionView.contentOffset.x, 0, 100, 100)
+        delegateProperty?.imageSelected(cell.mainImageView.image!, imageRect: rect)
     }
     
 }

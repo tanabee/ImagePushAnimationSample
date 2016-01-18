@@ -8,9 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImageCarouselCellDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImageCarouselCellDelegate, UIViewControllerTransitioningDelegate {
     
     @IBOutlet weak var tableView: UITableView!
+    var animationController = AnimationController()
 
     // MARK: UIViewController
     
@@ -31,8 +32,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
         if segue.identifier == "modalImage" {
             let vc = segue.destinationViewController as! ImageViewController
-            print(sender)
-            vc.imageUrlStr = sender as! String
+            vc.mainImage = sender as! UIImage
+            vc.transitioningDelegate = self
         }
     }
     
@@ -54,8 +55,24 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     
     // ImageCarouselCellDelegate
     
-    func imageSelected(imageUrlStr: String) {
-        self.performSegueWithIdentifier("modalImage", sender: imageUrlStr)
+    func imageSelected(image: UIImage, imageRect: CGRect) {
+        animationController.image = image
+        var rectFrom = imageRect
+        rectFrom.origin.y = 300
+        animationController.rectFrom = rectFrom
+        self.performSegueWithIdentifier("modalImage", sender: image)
+    }
+    
+    // UIViewControllerTransitioningDelegate
+    
+    func animationControllerForPresentedController(presented: UIViewController, presentingController presenting: UIViewController, sourceController source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        animationController.isForward = true
+        return animationController
+    }
+    
+    func animationControllerForDismissedController(dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        animationController.isForward = false
+        return animationController
     }
 }
 
