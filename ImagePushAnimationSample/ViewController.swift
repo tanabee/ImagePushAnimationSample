@@ -8,7 +8,7 @@
 
 import UIKit
 
-class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, ImageCarouselCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
 
@@ -28,6 +28,14 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
         tableView.tableFooterView = footer
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if segue.identifier == "modalImage" {
+            let vc = segue.destinationViewController as! ImageViewController
+            print(sender)
+            vc.imageUrlStr = sender as! String
+        }
+    }
+    
     // MARK: UITableView
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -39,7 +47,15 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     }
 
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        return tableView.dequeueReusableCellWithIdentifier("ImageCarouselCell")!
+        let cell = tableView.dequeueReusableCellWithIdentifier("ImageCarouselCell") as! ImageCarouselCell
+        cell.delegateProperty = self
+        return cell
+    }
+    
+    // ImageCarouselCellDelegate
+    
+    func imageSelected(imageUrlStr: String) {
+        self.performSegueWithIdentifier("modalImage", sender: imageUrlStr)
     }
 }
 

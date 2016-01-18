@@ -44,7 +44,7 @@
                                                                 <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                 <autoresizingMask key="autoresizingMask"/>
                                                                 <subviews>
-                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4K-rx-sdM">
+                                                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Q4K-rx-sdM">
                                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                                     </imageView>
                                                                 </subviews>
@@ -95,11 +95,44 @@
                     </view>
                     <connections>
                         <outlet property="tableView" destination="IG8-2k-EJB" id="Tvx-29-1oI"/>
+                        <segue destination="4It-OY-Nsg" kind="modal" identifier="modalImage" id="Xto-W6-e7m"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="162" y="397"/>
+            <point key="canvasLocation" x="-327" y="255"/>
+        </scene>
+        <!--Image View Controller-->
+        <scene sceneID="92H-pk-uen">
+            <objects>
+                <viewController id="4It-OY-Nsg" customClass="ImageViewController" customModule="ImagePushAnimationSample" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="VTo-bb-rG6"/>
+                        <viewControllerLayoutGuide type="bottom" id="EPR-xG-MZC"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Vcn-qV-6Jt">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="w8s-ls-LDy">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="w8s-ls-LDy" secondAttribute="trailing" id="6ve-sP-2e1"/>
+                            <constraint firstItem="w8s-ls-LDy" firstAttribute="top" secondItem="Vcn-qV-6Jt" secondAttribute="top" id="7e0-zS-t7I"/>
+                            <constraint firstItem="EPR-xG-MZC" firstAttribute="top" secondItem="w8s-ls-LDy" secondAttribute="bottom" id="cYG-u8-Hfe"/>
+                            <constraint firstItem="w8s-ls-LDy" firstAttribute="leading" secondItem="Vcn-qV-6Jt" secondAttribute="leading" id="qoh-EC-Ken"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="mainImageView" destination="w8s-ls-LDy" id="mM7-ab-Dal"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="beE-h2-TCU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133" y="255"/>
         </scene>
     </scenes>
 </document>

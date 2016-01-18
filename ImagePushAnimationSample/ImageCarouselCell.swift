@@ -9,8 +9,13 @@
 import UIKit
 import Alamofire
 
+protocol ImageCarouselCellDelegate {
+    func imageSelected(imageUrlStr: String)
+}
+
 class ImageCarouselCell: UITableViewCell, UICollectionViewDataSource, UICollectionViewDelegate {
     
+    var delegateProperty: ImageCarouselCellDelegate?
     @IBOutlet weak var collectionView: UICollectionView!
     
     var imageUrls = [String]() {
@@ -43,6 +48,10 @@ class ImageCarouselCell: UITableViewCell, UICollectionViewDataSource, UICollecti
         let cell = collectionView.dequeueReusableCellWithReuseIdentifier("ImageCell", forIndexPath: indexPath) as! ImageCell
         cell.mainImageView.sd_setImageWithURL(NSURL(string: imageUrls[indexPath.row]))
         return cell
+    }
+    
+    func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
+        delegateProperty?.imageSelected(imageUrls[indexPath.row])
     }
     
 }
