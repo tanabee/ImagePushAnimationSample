@@ -13,10 +13,10 @@ class AnimationController: NSObject, UIViewControllerAnimatedTransitioning {
     var isForward = true
     var image = UIImage()
     var rectFrom = CGRectZero
-    var rectTo = CGRectMake(0, 0, UIScreen.mainScreen().bounds.size.width, UIScreen.mainScreen().bounds.size.height)
+    var rectTo = CGRectZero
     
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 0.5
+        return 0.3
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {
@@ -24,9 +24,15 @@ class AnimationController: NSObject, UIViewControllerAnimatedTransitioning {
            let toView   = transitionContext.viewForKey(UITransitionContextToViewKey),
            let containerView = transitionContext.containerView() {
             
+            // rectTo の計算
+            let deviceWidth = UIScreen.mainScreen().bounds.size.width
+            let deviceHeight = UIScreen.mainScreen().bounds.size.height
+            let imageHeight = image.size.height / image.size.width * deviceWidth
+            rectTo = CGRectMake(0, (deviceHeight-imageHeight)/2, deviceWidth, imageHeight)
+            
             containerView.addSubview(fromView)
             let imageView = UIImageView(image: image)
-            imageView.contentMode = .ScaleAspectFit
+            imageView.contentMode = .ScaleAspectFill
             imageView.frame = isForward ? rectFrom : rectTo
             containerView.addSubview(imageView)
             
